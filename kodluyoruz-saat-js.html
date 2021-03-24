@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>JS Saat</title>
+  </head>
+ <body style="background:#d0d9cf;">
+    <div style="text-align: center;" >
+      <img
+        src="http://muratsahin.co/murat-logo.png"
+        alt="muratsahinco" width="500"
+      />
+      <div class="text1 text-center">
+        Merhaba, <strong><span id="myName"></span></strong>! Hoş geldin!
+      </div>
+      <div id="myClock" class="clock" onload="showTime()"></div>
+      <div class="text2 text-center"> 
+        <strong>Kodluyoruz Frontend Web Development Patikası</strong>  
+      </div>
+    </div>
+    <script>
+      function askName() {
+   var name = prompt("Adınız nedir?");
+   document.getElementById("myName").innerText = name;
+}
+
+function showTime() {
+  var date = new Date();
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  var session = date.getDay();
+
+  if (session == 1) {
+    session = "Pazartesi";
+  } else if (session == 2) {
+    session = "Salı";
+  } else if (session == 3) {
+    session = "Çarşamba";
+  } else if (session == 4) {
+    session = "Perşembe";
+  } else if (session == 5) {
+    session = "Cuma";
+  } else if (session == 6) {
+    session = "Cumartesi";
+  } else if (session == 7) {
+    session = "Pazar";
+  }
+
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+
+  var time = h + ":" + m + ":" + s + " " + session;
+  document.getElementById("myClock").innerText = time;
+  document.getElementById("myClock").textContent = time;
+
+  setTimeout(showTime, 1000);
+}
+
+askName();
+showTime()
+    </script>
+  </body>
+</html>
